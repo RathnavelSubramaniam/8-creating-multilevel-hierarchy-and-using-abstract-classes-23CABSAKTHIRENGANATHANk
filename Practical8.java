@@ -17,7 +17,10 @@ abstract class Animal {
     public boolean equals(Object obj)
     {
 
-     return true;
+     if(this==obj)return true;
+     if (obj==null||getClass()!=obj.getClass())return false;
+     Animal otherAnimal=(Animal)obj;
+     return species.equals(otherAnimal.species)&&age==otherAnimal.age;
     }
 
 }
@@ -80,6 +83,8 @@ public static void main(String[] args) {
    System.out.println(lion);
    System.out.println(eagle);
    System.out.println(talkingParrot);
+   System.out.println("Are lion and eagle equal? "+lion.equals(eagle));
+   System.out.println("Are lion and lion equal? " +lion.equals(new Mammal("Lion",5,"Grassland")));
 
 }
 }
